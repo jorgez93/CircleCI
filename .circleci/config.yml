@@ -16,26 +16,6 @@ jobs:
       - run:   
           command: ./mvnw -Dmaven.test.skip=true package
 
-  test-1:
-    docker:
-      - image: circleci/openjdk:stretch
-    steps:
-     - checkout
-     - run:
-        name: Giving permissions
-        command: chmod +x mnvw
-     - run:
-        command: ./mvnw test
-
-workflows:
-  version: 2.1
-  build-test:
-    jobs:
-      - build
-      - test-1:
-          requires:
-            - build
-
 
 
 
