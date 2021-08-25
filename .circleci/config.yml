@@ -12,8 +12,7 @@ nightly:
        - schedule:
            - cron: "0 7 * * *"
            - cron: "0 20 * * *"
-                 
-           
+                        
 jobs:
   sonar_test:
         docker:
