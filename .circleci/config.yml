@@ -16,7 +16,7 @@ jobs:
       - run:   
           command: ./mvnw -Dmaven.test.skip=true package
 
-test_3:
+  test_3:
     docker:
       - image: cimg/node:12.16
     steps:
@@ -35,7 +35,7 @@ test_3:
                 failure_message: Test-3 Failed
                 success_message: Test -3 Success
   
-test_2:
+  test_2:
     docker:
       - image: cimg/node:12.16
     steps:
@@ -52,16 +52,6 @@ test_2:
                 failure_message: Test-2 Failed
                 success_message: Test-2 Success
 
-test-1:
-    docker:
-      - image: circleci/openjdk:stretch
-    steps:
-     - checkout
-     - run:
-        name: Giving permissions
-        command: chmod +x mvnw
-     - run:
-        command: ./mvnw test
   test-1:
     docker:
       - image: circleci/openjdk:stretch
