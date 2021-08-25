@@ -22,12 +22,12 @@
 
 	<distributionManagement>
   <repository>
-    <id>packagecloud-VA</id>
-    <url>packagecloud+https://packagecloud.io/VA/CIRCLECI100</url>
+    <id>packagecloud-jorgez93</id>
+    <url>packagecloud+https://packagecloud.io/jorgez93/circleci</url>
   </repository>
   <snapshotRepository>
-    <id>packagecloud-VA</id>
-    <url>packagecloud+https://packagecloud.io/VA/CIRCLECI100</url>
+    <id>packagecloud-jorgez93</id>
+    <url>packagecloud+https://packagecloud.io/jorgez93/circleci</url>
   </snapshotRepository>
 </distributionManagement>
 	
