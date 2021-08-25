@@ -16,6 +16,52 @@ jobs:
       - run:   
           command: ./mvnw -Dmaven.test.skip=true package
 
+test_3:
+    docker:
+      - image: cimg/node:12.16
+    steps:
+      - checkout
+      - node/install-packages:
+          
+          override-ci-command: npm install
+      - run:
+          name: Install unitjs
+          command: npm install unit.js
+      - run:   
+          command: npm install --save-dev jest
+      - run:
+          command: npm run test
+      - slack/status:
+                failure_message: Test-3 Failed
+                success_message: Test -3 Success
+  
+test_2:
+    docker:
+      - image: cimg/node:12.16
+    steps:
+      - checkout
+      - node/install-packages:
+          
+          override-ci-command: npm install
+      - run:
+          name: Install jest
+          command: npm install --save-dev jest
+      - run:   
+          command: npm run test
+      - slack/status:
+                failure_message: Test-2 Failed
+                success_message: Test-2 Success
+
+test-1:
+    docker:
+      - image: circleci/openjdk:stretch
+    steps:
+     - checkout
+     - run:
+        name: Giving permissions
+        command: chmod +x mvnw
+     - run:
+        command: ./mvnw test
   test-1:
     docker:
       - image: circleci/openjdk:stretch
@@ -32,6 +78,12 @@ workflows:
   build-test:
     jobs:
       - build
+      - test-3:
+          requires:
+            - build
+      - test-2:
+          requires:
+            - build
       - test-1:
           requires:
             - build
