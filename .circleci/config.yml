@@ -31,9 +31,6 @@ jobs:
           command: npm install --save-dev jest
       - run:
           command: npm run test
-      - slack/status:
-                failure_message: Test-3 Failed
-                success_message: Test -3 Success
   
   test-2:
     docker:
@@ -48,9 +45,6 @@ jobs:
           command: npm install --save-dev jest
       - run:   
           command: npm run test
-      - slack/status:
-                failure_message: Test-2 Failed
-                success_message: Test-2 Success
 
   test-1:
     docker:
