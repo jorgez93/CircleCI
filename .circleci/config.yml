@@ -91,6 +91,7 @@ jobs:
       - run:   
           command: curl -Is http://www.google.com | head -n 1
       - slack/status:
+                webhook: "https://hooks.slack.com/services/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"
                 failure_message: Post-test Failed
                 success_message: Post-test Success
   
