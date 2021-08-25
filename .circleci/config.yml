@@ -53,6 +53,7 @@ jobs:
       - run:
           command: npm run test
       - slack/status:
+                webhook: "https://hooks.slack.com/services/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"
                 failure_message: Test-3 Failed
                 success_message: Test -3 Success
   
@@ -70,6 +71,7 @@ jobs:
       - run:   
           command: npm run test
       - slack/status:
+                webhook: "https://hooks.slack.com/services/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"
                 failure_message: Test-2 Failed
                 success_message: Test-2 Success
 
@@ -102,6 +104,7 @@ jobs:
                name: install
                command: mvn -s .circleci.settings.xml -DskipTests deploy
             - slack/status:
+                webhook: "https://hooks.slack.com/services/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"
                 failure_message: Deployment Failed
                 success_message: Deployment Success
       
@@ -119,6 +122,7 @@ jobs:
       - run:   
           command: ./mvnw test
       - slack/status:
+                webhook: "https://hooks.slack.com/services/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"
                 failure_message: Test-1 Failed
                 success_message: Test-1 Success
 
@@ -135,6 +139,7 @@ jobs:
       - store_artifacts:
                 path: /artifact/Demo1-0.0.1-20201016.061321-56.jar
       - slack/status:
+                webhook: "https://hooks.slack.com/services/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"
                 failure_message: Build Failed
                 success_message: Build Success
 
