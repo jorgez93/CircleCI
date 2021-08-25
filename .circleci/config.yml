@@ -1,6 +1,7 @@
 version: 2.1
 
 orbs:
+  percy: percy/agent@0.1.2
   slack: circleci/slack@3.4.2
   node: circleci/node@4.1.0
   sonarcloud: sonarsource/sonarcloud@1.0.0
@@ -76,8 +77,6 @@ jobs:
                 success_message: Test-2 Success
 
          
-  
-  
   
   
   post_test:
@@ -183,6 +182,8 @@ workflows:
       - newman-collection-run:
           requires:
             - post_test
-
-
-
+      - percy/finalize_all:
+          requires:
+            - test_1
+            - test_2
+            - test_3
